@@ -33,7 +33,11 @@ public abstract class Hogwards {
         System.out.println("Transgressive - " + transgressive);
     }
 
-
+    /**
+     * 1)Не реализован метод, который сравнивает двух любых учеников Хогвартса по силе магии и расстоянию трансгрессии, и выводит в консоль сравнительную оценку между двумя учениками
+     * Данный метод реализует сравнение двух ученников по силе магии и способности к трансгрессии.
+     * @param student
+     */
     public void compare(Hogwards student) {
         int sum1 = getSumPower();
         int sum2 = student.getSumPower();
@@ -53,8 +57,19 @@ public abstract class Hogwards {
         return nameFaculty;
     }
 
+    /**
+     * 2) Стоит отказаться от поля nameFaculty и проводить проверку через this.getClass().equals(hogwarts.getClass())
+     * а данный метод реализует сравнение 2х учеников одного факультета.
+     * И в данном варианте моего кода не хотелось бы удалять поле nameFaculty
+     * для адаптивного вывода на печать в зависимости от сравниваемых учеников
+     * одного факультета. Можно конечно сделать данный метод и без данного поля но
+     * тогда не понятно будет учеников какого факультета мы сравниваем. А если прописывать
+     * жестко в коде наименование факультета прийдется писать данный метод в классе каждого
+     * факультета что не будет соотвествовать принципам ООП.
+     * @param student
+     */
     public void compareFaculty(Hogwards student) {
-        if (nameFaculty.equals(student.getNameFaculty())){
+        if (this.getClass().equals(student.getClass())){
             int sum1 = getSumFaculty();
             int sum2 = student.getSumFaculty();
             if (sum1 > sum2){
